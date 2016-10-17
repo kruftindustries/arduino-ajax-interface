@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+                        <html>
+                        <head>
+                        <title>Arduino Web Page</title>
+                        <script>
+                        function GetSwitchAnalogData() {
+                        nocache = \"&nocache=\" + Math.random() * 1000000;
+                        var request = new XMLHttpRequest();
+                        request.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                        if (this.status == 200) {
+                        if (this.responseText != null) {
+                        document.getElementById(\"sw_an_data\").innerHTML = this.responseText;
+                        }}}}
+                        request.open(\"GET\", \"ajax_switch\" + nocache, true);
+                        request.send(null);
+                        setTimeout('GetSwitchAnalogData()', 1000);
+                        }
+                        </script>
+                        </head>
+                        <body onload=\"GetSwitchAnalogData()\">
+                        <h1>Arduino AJAX Input</h1>
+                        <div id=\"sw_an_data\">
+                        </div>
+                        </body>
+                        </html>
