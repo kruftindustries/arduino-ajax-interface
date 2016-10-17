@@ -12,6 +12,7 @@
                         if (this.responseText != null) {
                         document.getElementById("sw_an_data").innerHTML = this.responseText;
                         }}}}
+                        //request.open("GET", "ajax_switch.php" + nocache, true); //browser cache workaround
                         request.open("GET", "ajax_switch.php", true);
                         request.send(null);
                         setTimeout('GetSwitchAnalogData()', 1000);
